@@ -1,0 +1,47 @@
+{
+  "title" : "Leboncoin JSON",
+  "type" : "object",
+  "properties":
+  {
+    "price":
+    {
+      "type":"integer",
+      "minimum" :0
+    },
+    "location" :
+    {
+      "type" : "object",
+      "properties":
+      {
+        "city":
+        {
+          "type" : "string"
+        },
+        "cp":
+        {
+          "type": "integer"
+        }
+      }
+    },
+    "specificities":
+    {
+      "type":"object",
+      "properties":
+      {
+        "type" :
+        {
+          "type" : "string"
+        },
+        "piece":
+        {
+          "type": "integer"
+        },
+        "surface":
+        {
+          "type" : "integer"
+        }
+      }
+    }
+  },
+  "required" : ["price", "type", "rooms", "city", "postal_code"]
+}

@@ -1,12 +1,12 @@
 {
-  "price": 165000,
+  "price": 323000,
   "location": {
     "city": "Courbevoie",
     "cp": 92400
   },
   "specificities": {
     "type": "Appartement",
-    "piece": 1,
-    "surface": 27
+    "piece": 3,
+    "surface": 67
   }
 }

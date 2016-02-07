@@ -1,0 +1,13 @@
+{
+  "title": "Leboncoin JSON",
+  "price": 990,
+  "location": {
+    "city": "Montgeron",
+    "cp": 91230
+  },
+  "specificities": {
+    "type": "Oui",
+    "piece": null,
+    "surface": null
+  }
+}

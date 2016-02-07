@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8" />
+	<link rel="stylesheet" href="CSS/index2CSS.css" />
+	</head>
+
+	<body>
+
+		<h2>Estimate your house</h2>
+
+
+		<div id="container">
+
+      <center>
+        <input type ="text" name="url" height = "800px"</input>
+        <button id="compute">Estimate</button>
+      </center>
+
+
+			<div id="body">
+
+				<table>
+					<th>
+            <table id="table1">
+            <tr>
+  						<th>Price:
+  						  <td>
+  							<div id="Price">
+  							  <input class="pricemodel" name="priceMomo" type="text" placeholder="Car model"/>
+  							</div>
+  						  </td>
+  						</th>
+            </tr>
+            <tr>
+              <th>City:
+  						  <td>
+  							<div id="City">
+  							  <input class="citymodel" type="text" placeholder="Car model"/>
+  							</div>
+  						  </td>
+  						</th>
+            </tr>
+            <tr>
+              <th>Postal Code:
+  						  <td>
+  							<div id="CP">
+  							  <input class="cpmodel" type="text" placeholder="Car model"/>
+  							</div>
+  						  </td>
+  						</th>
+            </tr>
+            <tr>
+              <th>Piece:
+  						  <td>
+  							<div id="Piece">
+  							  <input class="piecemodel" type="text" placeholder="Car model"/>
+  							</div>
+  						  </td>
+  						</th>
+            </tr>
+              <th>Surface:
+  						  <td>
+  							<div id="Surface">
+  							  <input class="surfacemodel" type="text" placeholder="Car model"/>
+  							</div>
+  						  </td>
+  						</th>
+              <tr>
+              <th>Price per M2:
+  						  <td>
+  							<div id="PricePerM2">
+  							  <input class="pricem2model" type="text" placeholder="Car model"/>
+  							</div>
+  						  </td>
+  						</th>
+            </tr>
+						</table>
+					</th>
+
+					<th>
+
+						</br>
+						<table id="table2">
+              <tr>
+                <th>City:
+    						  <td>
+    							<div id="City">
+    							  <input class="citymodel" type="text" placeholder="Car model"/>
+    							</div>
+    						  </td>
+    						</th>
+              </tr>
+              <tr>
+                <th>Postal Code:
+    						  <td>
+    							<div id="CP">
+    							  <input class="cpmodel" type="text" placeholder="Car model"/>
+    							</div>
+    						  </td>
+    						</th>
+              </tr>
+              <tr>
+                <th>Price per M2:
+    						  <td>
+    							<div id="PricePerM2">
+    							  <input class="pricem2model" type="text" placeholder="Car model"/>
+    							</div>
+    						  </td>
+    						</th>
+              </tr>
+						</table2>
+
+					</th>
+
+				</table>
+			</div>
+
+
+      <script>
+        function scrollFunction()
+        {
+          document.getElementById( 'footer' ).scrollIntoView();
+          window.setTimeout( function () { top(); }, 2000 );
+        };
+
+      </script>
+
+      <!--
+			<div id="footer">
+				<footer>
+					<H4>Details of your rental : </H4>
+					  <div id="actors"></div>
+							<script id="template" type="x-tmpl-mustache">
+							  {{#actors}}
+								<div class="actor">
+								  <span>{{who}}</span>
+								  <span>{{type}} :</span>
+								  <span>{{amount}}</span>
+								</div>
+							  {{/actors}}
+							</script>
+				</footer>
+			</div>
+-->
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+		<script src="testRecup.js"></script>
+
+
+
+
+	</body>
+</html>

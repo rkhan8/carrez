@@ -21,14 +21,26 @@ request(url, function(error, response, html)
 
     var tabElement = $("[class='lbcParams criterias'] > table > tr > td");
     typee = tabElement[0].children[0].data;
-    piecee = parseInt(tabElement[1].children[0].data.replace(" ",""));
-    surfacee = parseInt(tabElement[3].children[0].data.replace(" ",""));
-    if(surfacee == null)
+
+    if(typee != "Appartement" && typee != "Maison")
     {
-      surfacee = parseInt(tabElement[3].children[0].data.replace(" ",""));
+        typee = tabElement[1].children[0].data;
+        piecee = parseInt(tabElement[2].children[0].data.replace(" ",""));
+        surfacee = parseInt(tabElement[3].children[0].data.replace(" ",""));
+        if(surfacee == null)
+        {
+          surfacee = parseInt(tabElement[4].children[0].data.replace(" ",""));
+        }
     }
-
-
+    else
+    {
+      piecee = parseInt(tabElement[1].children[0].data.replace(" ",""));
+      surfacee = parseInt(tabElement[2].children[0].data.replace(" ",""));
+      if(surfacee == null)
+      {
+        surfacee = parseInt(tabElement[3].children[0].data.replace(" ",""));
+      }
+    }
 
     jsonSchema.price = pricee;
     jsonSchema.location.city = cityy;

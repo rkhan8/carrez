@@ -1,0 +1,31 @@
+{
+  "title" : "Meilleur Agents JSON",
+  "location":
+  {
+    "city":
+    {
+      "type":"string"
+    },
+    "cp" :
+    {
+      "type" : "integer"
+    }
+  },
+  "specificities":
+  {
+    "type" :
+    {
+        "type" : "string"
+    },
+     "pricem2" :
+    {
+        "type" : "integer",
+        "minimum" : 0
+    }
+    
+  },
+  "good_deal" :
+  {
+      "type" : "string"
+  }
+}

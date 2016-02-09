@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8" />
+	<link rel="stylesheet" href="CSS/index2CSS.css" />
+	</head>
+
+	<body>
+
+		<h2>Estimate your house</h2>
+
+
+		<div id="container">
+
+      <center>
+        <input type ="text" id="url" height = "800px"</input>
+        <button id="compute">Estimate</button>
+      </center>
+
+      <!--
+			<div id="body">
+
+				<table>
+					<th>
+            <table id="table1">
+            <tr>
+  						<th>Price:
+  						  <td>
+  							<div id="Price">
+  							  <input class="pricemodel" name="priceMomo" type="text" placeholder="Car model"/>
+  							</div>
+  						  </td>
+  						</th>
+            </tr>
+            <tr>
+              <th>City:
+  						  <td>
+  							<div id="City">
+  							  <input class="citymodel" type="text" placeholder="Car model"/>
+  							</div>
+  						  </td>
+  						</th>
+            </tr>
+            <tr>
+              <th>Postal Code:
+  						  <td>
+  							<div id="CP">
+  							  <input class="cpmodel" type="text" placeholder="Car model"/>
+  							</div>
+  						  </td>
+  						</th>
+            </tr>
+            <tr>
+              <th>Piece:
+  						  <td>
+  							<div id="Piece">
+  							  <input class="piecemodel" type="text" placeholder="Car model"/>
+  							</div>
+  						  </td>
+  						</th>
+            </tr>
+              <th>Surface:
+  						  <td>
+  							<div id="Surface">
+  							  <input class="surfacemodel" type="text" placeholder="Car model"/>
+  							</div>
+  						  </td>
+  						</th>
+              <tr>
+              <th>Price per M2:
+  						  <td>
+  							<div id="PricePerM2">
+  							  <input class="pricem2model" type="text" placeholder="Car model"/>
+  							</div>
+  						  </td>
+  						</th>
+            </tr>
+						</table>
+					</th>
+
+					<th>
+
+						</br>
+						<table id="table2">
+              <tr>
+                <th>City:
+    						  <td>
+    							<div id="City">
+    							  <input class="citymodel" type="text" placeholder="Car model"/>
+    							</div>
+    						  </td>
+    						</th>
+              </tr>
+              <tr>
+                <th>Postal Code:
+    						  <td>
+    							<div id="CP">
+    							  <input class="cpmodel" type="text" placeholder="Car model"/>
+    							</div>
+    						  </td>
+    						</th>
+              </tr>
+              <tr>
+                <th>Price per M2:
+    						  <td>
+    							<div id="PricePerM2">
+    							  <input class="pricem2model" type="text" placeholder="Car model"/>
+    							</div>
+    						  </td>
+    						</th>
+              </tr>
+						</table2>
+
+					</th>
+
+				</table>
+			</div>-->
+
+
+      <section id="intro" class="intro-section">
+          <div class="container">
+              <div class="row">
+                <!--  <div class="col-lg-12">
+                      <input type="text" id="link_input" placeholder="Link from Leboncoin" size="60" />
+                      <a class="btn btn-default page-scroll" id="sendButton">send</a>
+                  </div>
+              </div>-->
+              <div class="row top-double" id="informationRow">
+              </div>
+          </div>
+          <div class="container" id="estimation">
+          </div>
+          <div class="container" id="advice">
+          </div>
+      </section>
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        var socket = io();
+        var button = document.querySelector('#compute');
+
+        button.addEventListener('click', function onClick() {
+            document.getElementById("informationRow").innerHTML = "";
+            document.getElementById("estimation").innerHTML = "";
+            document.getElementById("advice").innerHTML = "";
+            var msg = document.getElementById("url").value;
+            socket.emit("sending_link", {
+                message: msg
+            });
+            return;
+        });
+
+
+        socket.on('send_informations', function(msg){
+        $('#informationRow').append($('<div class="col-lg-4 text-normal">').text(msg));
+        });
+
+        socket.on('send_estimation', function(msg){
+        $('#estimation').append($('<div class="row top-buffer" id="estimationRow">'));
+        $('#estimationRow').append($('<div class="col-lg-8 estimator-heading text-normal">').text(msg));
+        });
+
+        socket.on('send_advice', function(msg){
+        $('#advice').append($('<div class="row top-double" id="adviceRow">'));
+        $('#adviceRow').append($('<div class="col-lg-15 estimator-heading text-normal">').text(msg));
+        });
+    </script>
+
+
+
+
+	</body>
+</html>

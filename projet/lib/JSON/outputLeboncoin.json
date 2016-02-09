@@ -1,0 +1,13 @@
+{
+  "title": "Leboncoin JSON",
+  "price": 320000,
+  "location": {
+    "city": "Courbevoie",
+    "cp": 92400
+  },
+  "specificities": {
+    "type": "Appartement",
+    "piece": 2,
+    "surface": 52
+  }
+}

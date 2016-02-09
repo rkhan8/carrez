@@ -3,12 +3,11 @@ var request = require('request');
 
 
 
-module.exports = function(ville, cp, type, price, surface, callback)
+module.exports = function(data, callback)
 {
   var cityy, cpp, typee, avgPricem2;
-  cityy = ville; //data_json.location.city;
-  cpp = cp;//data_json.location.cp;
-  typee = type;
+  cityy = data.location.city; //data_json.location.city;
+  cpp = data.location.cp;//data_json.location.cp;
 
   var url = "https://www.meilleursagents.com/prix-immobilier/"+cityy.toLowerCase()+"-"+cpp+"/#estimates";
 
@@ -18,7 +17,7 @@ module.exports = function(ville, cp, type, price, surface, callback)
 
       var $ = cheerio.load(html);
 
-      //typee = data_json.specificities.type;
+      typee = data.specificities.type;
 
   		avgPricem2 = $('.small-4.medium-2.columns').map(function () {
   			return Number($(this).text().match(/[0-9,]/g).join("").replace(",", "."));
@@ -35,8 +34,8 @@ module.exports = function(ville, cp, type, price, surface, callback)
 
       var deal = "";
       var pricee, surfacee;
-      pricee = price ;
-      surfacee = surface;
+      pricee = data.price ;
+      surfacee = data.specificities.surface;
 
       var estimatePriceLeboncoin = pricee / surfacee;
 
@@ -62,7 +61,7 @@ module.exports = function(ville, cp, type, price, surface, callback)
         specificities:
         {
           type : typee,
-          pricem2 : avgPricem2
+          pricem2 : avgPricem2[1]
         },
         good_deal : deal
       };

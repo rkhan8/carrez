@@ -52,12 +52,15 @@ var writeInformations = function (err, result) {
     //io.emit('send_informations', "Prix par m2: " + lbcprix + "euros");
 
 
-    meilleursagents(result.location.city, result.location.cp, result.specificities.type, result.price, result.specificities.surface, function (dataM) {
+    meilleursagents(result, function (dataM) {
         console.log("MeilleurAgentJson:");
         console.log(dataM);
 
 
-				io.emit('send_estimation', "City of estimation: " + dataM.location.city);
+				io.emit('send_estimation', "Type of estimation : " + dataM.specificities.type);
+				io.emit('send_estimation', "Price per M2 : " + dataM.specificities.pricem2);
+
+				io.emit('send_advice', "Good deal: " + dataM.good_deal);
     })
 
 }
